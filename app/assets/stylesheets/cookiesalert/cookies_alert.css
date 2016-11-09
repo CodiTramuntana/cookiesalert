@@ -1,0 +1,44 @@
+.cookies-alert {
+  background: #000000;
+  color: #FFFFFF;
+  font-size: 1.7rem;
+  margin: 0;
+  border-radius: 0px;
+  text-align: left;
+  position: fixed;
+  overflow: hidden;
+  visibility: hidden;
+  bottom: 0;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.cookies-content {
+  width: 98%;
+  padding-right: 40px;
+}
+.cookies-content a {
+  color: #FFFFFF !important;
+}
+.cookies-content a:hover {
+  color: #bfbfbf !important;
+  cursor: pointer;
+}
+
+.cookies-cross {
+  float: right;
+  text-decoration: underline;
+  color: #FFFFFF;
+  width: 30px;
+  height: 30px;
+  padding-top: 15px;
+}
+.cookies-cross:hover {
+  color: #bfbfbf;
+  cursor: pointer;
+}
