@@ -5,16 +5,12 @@
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'cookiesalert'
+gem 'cookiesalert', :git => 'ssh://git@gitlab.coditdev.net:534/gems/cookiesalert.git'
 ```
 
 And then execute:
 
     $ bundle
-
-Or install it yourself as:
-
-    $ gem install cookiesalert
 
 ## Usage
 
@@ -31,7 +27,11 @@ cookies.check()
 
 Javascript optional parameters for select "#text_div" and add listener in "#button_confirm" for accept cookies:
 ```js
-cookies.check("#div", "#button")
+cookies.check({
+  div : '#div',
+  btn : '#button',
+  expires : 7 //Days
+})
 ```
 
 ## Optional template
@@ -45,3 +45,11 @@ Import optional view layout:
 ```erb
 <%= render "cookies/alert", :advice => "Cookies Text", :link => "Link Advice", :button => "Button" %>
 ```
+
+Render optional parameters:
+```erb
+<%= render "cookies/alert", :advice => "Cookies Text", :link => link_to('Link Advice', root_path, target: '_blank'), :button => image_tag('cross_cookies.svg') %>
+```
+
+## Dependences included:
+-[JavaScript Cookie v2.1.3](https://github.com/js-cookie/js-cookie)
