@@ -1,7 +1,7 @@
 .cookies-alert {
   background: #000000;
   color: #FFFFFF;
-  font-size: 1.7rem;
+  font-size: 17px;
   margin: 0;
   border-radius: 0px;
   text-align: left;
@@ -9,8 +9,9 @@
   overflow: hidden;
   visibility: hidden;
   bottom: 0;
-  z-index: 10;
-  width: 100%;
+  left: 0;
+  z-index: 100;
+  width: auto;
   display: flex;
   padding-left: 40px;
   padding-right: 40px;
@@ -19,7 +20,7 @@
 }
 
 .cookies-content {
-  width: 98%;
+  width: calc(99% - 60px);
   padding-right: 40px;
 }
 .cookies-content a {
@@ -30,7 +31,7 @@
   cursor: pointer;
 }
 
-.cookies-cross {
+.cookies-alert-btn {
   float: right;
   text-decoration: underline;
   color: #FFFFFF;
@@ -38,7 +39,7 @@
   height: 30px;
   padding-top: 15px;
 }
-.cookies-cross:hover {
+.cookies-alert-btn:hover {
   color: #bfbfbf;
   cursor: pointer;
 }
