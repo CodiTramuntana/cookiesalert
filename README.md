@@ -22,7 +22,9 @@ Add in "application.js":
 
 Run Javascript check when load/ready:
 ```js
-cookies.check()
+$( document ).ready(function() {
+    cookies.check();
+});
 ```
 
 Javascript optional parameters for select "#text_div" and add listener in "#button_confirm" for accept cookies:
@@ -31,7 +33,7 @@ cookies.check({
   div : '#div',
   btn : '#button',
   expires : 7 //Days
-})
+});
 ```
 
 ## Optional template
