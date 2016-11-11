@@ -53,8 +53,8 @@ Render optional parameters:
 <%= render "cookies/alert", :advice => "Cookies Text", :link => link_to('Link Advice', root_path, target: '_blank'), :button => image_tag('cross_cookies.svg') %>
 ```
 
-
-Used Javascript Linter: ESLint file config ".eslintrc.js":
+## Used Javascript Linter
+ESLint file config ".eslintrc.js":
 ```js
 module.exports = {
     "env": {
