@@ -45,3 +45,33 @@ Import optional view layout:
 ```erb
 <%= render "cookies/alert", :advice => "Cookies Text", :link => "Link Advice", :button => "Button" %>
 ```
+
+Javascript Linter: ESLint file config ".eslintrc.js":
+```js
+module.exports = {
+    "env": {
+        "browser": true,
+        "commonjs": true
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+        "indent": [
+            "error",
+            2
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+	"no-undef" : 0
+    }
+};
+```
