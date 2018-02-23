@@ -5,7 +5,7 @@
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'cookiesalert', :git => 'ssh://git@gitlab.coditdev.net:534/gems/cookiesalert.git'
+gem 'cookiesalert', :git => 'ssh://git@github.com:CodiTramuntana/cookiesalert.git'
 ```
 
 And then execute:
