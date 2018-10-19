@@ -1,11 +1,13 @@
 # Cookies alert
 
+[![Gem Version](https://badge.fury.io/rb/cookiesalert.svg)](https://badge.fury.io/rb/cookiesalert)
+
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'cookiesalert', :git => 'ssh://git@github.com:CodiTramuntana/cookiesalert.git'
+gem 'cookiesalert'
 ```
 
 And then execute:

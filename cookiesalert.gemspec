@@ -6,26 +6,19 @@ require 'cookiesalert/version'
 Gem::Specification.new do |spec|
   spec.name          = "cookiesalert"
   spec.version       = Cookiesalert::VERSION
-  spec.authors       = ["Josep Subils"]
-  spec.email         = ["josep.sr@coditramuntana.com"]
+  spec.authors       = ["Josep Subils", "Isaac Massot", "Agustí B.R."]
+  spec.email         = ["josep.sr@coditramuntana.com", "issac.mg@coditramuntana.com", "agusti.br@coditramuntana.com"]
 
   spec.summary       = "Cookie's Alert generator"
   spec.description   = "Cookie's Javascript/CSS/View Layout for Alert generator"
-  spec.homepage      = "http://coditramuntana.com"
+  spec.homepage      = "https://github.com/CodiTramuntana/cookiesalert"
+  spec.license       = "MIT"
 
-  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
-  # to allow pushing to a single host or delete this section to allow pushing to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against " \
-      "public gem pushes."
-  end
 
 #  spec.files         = `git ls-files -z`.split("\x0").reject do |f|
 #    f.match(%r{^(test|spec|features)/})
 #  end
-  spec.files = Dir["{lib,vendor,app}/**/*"]
+  spec.files = Dir["{lib,vendor,app}/**/*"] + ["LICENSE", "Rakefile", "README.md"]
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
