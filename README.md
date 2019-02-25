@@ -2,6 +2,8 @@
 
 [![Gem Version](https://badge.fury.io/rb/cookiesalert.svg)](https://badge.fury.io/rb/cookiesalert)
 
+Easily add a Cookie consent banner, upon the user’s first visit to the site, to alert the users about the cookies and get consent for setting them.
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -29,7 +31,7 @@ $( document ).ready(function() {
 });
 ```
 
-Javascript optional parameters for select "#text_div" and add listener in "#button_confirm" for accept cookies:
+Javascript optional parameters to select "#text_div" and add listener in "#button_confirm" to accept cookies:
 ```js
 cookies.check({
   div : '#div',
@@ -47,12 +49,12 @@ Add optional styles in "application.css":
 
 Import optional view layout:
 ```erb
-<%= render "cookies/alert", :advice => "Cookies Text", :link => "Link Advice", :button => "Button" %>
+<%= render "cookies/alert", advice: "Cookies Text", link: "Link Advice", button: "Button" %>
 ```
 
 Render optional parameters:
 ```erb
-<%= render "cookies/alert", :advice => "Cookies Text", :link => link_to('Link Advice', root_path, target: '_blank'), :button => image_tag('cross_cookies.svg') %>
+<%= render "cookies/alert", advice: "Cookies Text", link: link_to('Link Advice', root_path, target: '_blank'), button: image_tag('cross_cookies.svg') %>
 ```
 
 ## Used Javascript Linter
@@ -87,7 +89,7 @@ module.exports = {
 ```
 
 ## Dependences included:
--[JavaScript Cookie v2.1.3](https://github.com/js-cookie/js-cookie)
+- [JavaScript Cookie v2.2.0](https://github.com/js-cookie/js-cookie)
 
 # Contributing
 
