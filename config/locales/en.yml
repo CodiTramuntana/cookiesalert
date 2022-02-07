@@ -1,0 +1,2 @@
+en:
+  more_info_html: Click for <a href=%{policy_cookies}>more information</a> or to <a id="deny_btn">decline</a>.

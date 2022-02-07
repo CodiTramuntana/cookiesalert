@@ -10,35 +10,41 @@
   visibility: hidden;
   bottom: 0;
   left: 0;
-  z-index: 100;
+  z-index: 999;
   width: 100%;
   display: flex;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding: 15px 4px;
 }
 
 .cookies-content {
+  display: block;
   width: calc(99% - 80px);
   padding-left: 40px;
   padding-right: 40px;
 }
 .cookies-content a {
   color: #FFFFFF !important;
+  text-decoration: underline;
+  font-weight: bold;
 }
 .cookies-content a:hover {
   color: #bfbfbf !important;
   cursor: pointer;
 }
+.cookies-content p {
+  padding-top: 4px;
+}
 
 .cookies-alert-btn {
-  float: right;
-  text-decoration: underline;
-  color: #FFFFFF;
-  width: auto;
-  height: 30px;
-  padding-right: 40px;
+  max-height: 48px;
+  padding: 10px;
 }
 .cookies-alert-btn:hover {
   color: #bfbfbf;
   cursor: pointer;
+}
+
+.links-and-buttons {
+  display: flex;
+  justify-content: space-between;
 }
