@@ -1,7 +1,7 @@
 # CHANGELOG
 
-## Version 1.0.0
-- Adapt gem to EDPB.
+## Version 0.2.0
+- Adapt gem to GDPR.
 - `link` params renamed to `policy_cookies`.
 - Add locales in order to easy use.
 - Now can deny cookies with deny button.

@@ -1,3 +1,3 @@
 es:
-  more_info_html: Pulse para obtener <a href=%{policy_cookies}>más información</a> o para <a id="deny_btn">rechazar</a>.
+  more_info_html: Pulse para obtener <a href=%{policy_cookies}>más información</a> o para <a class="deny">rechazar</a>.
   

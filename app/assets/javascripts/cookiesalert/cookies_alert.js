@@ -1,7 +1,7 @@
 var cookies = {
   div : "#cookies",
-  btn : "#cookies_btn",
-  denyBtn: "#deny_btn",
+  btn : "#cookies .accept",
+  denyBtn: "#cookies .deny",
   expires : 365,
   check : function (obj) {
     if (obj !== undefined) {

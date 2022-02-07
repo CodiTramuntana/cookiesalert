@@ -34,9 +34,9 @@ $( document ).ready(function() {
 Javascript optional parameters to select "#text_div" and add listener in "#button_confirm" to accept cookies:
 ```js
 cookies.check({
-  div : '#div',
-  btn : '#button',
-  denyBtn: "#deny-button",
+  div : '#cookies',
+  btn : '#cookies .accept',
+  denyBtn: "#cookies .deny",
   expires : 7 //Days
 });
 ```
