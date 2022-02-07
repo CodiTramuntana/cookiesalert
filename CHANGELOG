@@ -1,0 +1,9 @@
+# CHANGELOG
+
+## Version 1.0.0
+- Adapt gem to EDPB.
+- `link` params renamed to `policy_cookies`.
+- Add locales in order to easy use.
+- Now can deny cookies with deny button.
+- New param `gtm_code` for Google Tag Manager code when user accept cookies.
+- Bump [js-cookie](https://github.com/js-cookie/js-cookie) to v3.0.1.

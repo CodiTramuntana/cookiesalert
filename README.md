@@ -36,6 +36,7 @@ Javascript optional parameters to select "#text_div" and add listener in "#butto
 cookies.check({
   div : '#div',
   btn : '#button',
+  denyBtn: "#deny-button",
   expires : 7 //Days
 });
 ```
@@ -49,12 +50,12 @@ Add optional styles in "application.css":
 
 Import optional view layout:
 ```erb
-<%= render "cookies/alert", advice: "Cookies Text", link: "Link Advice", button: "Button" %>
+<%= render "cookies/alert", advice: "Cookies Text", policy_cookies: "Link Advice", button: "Button", gtm_code: "GTM-XXXX" %>
 ```
 
 Render optional parameters:
 ```erb
-<%= render "cookies/alert", advice: "Cookies Text", link: link_to('Link Advice', root_path, target: '_blank'), button: image_tag('cross_cookies.svg') %>
+<%= render "cookies/alert", advice: "Cookies Text", policy_cookies: link_to('Link Advice', root_path, target: '_blank'), button: image_tag('cross_cookies.svg'), gtm_code: "GTM-XXXX" %>
 ```
 
 ## Used Javascript Linter
@@ -89,7 +90,7 @@ module.exports = {
 ```
 
 ## Dependences included:
-- [JavaScript Cookie v2.2.0](https://github.com/js-cookie/js-cookie)
+- [JavaScript Cookie v3.0.1](https://github.com/js-cookie/js-cookie)
 
 # Contributing
 
