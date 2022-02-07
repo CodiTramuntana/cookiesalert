@@ -1,6 +1,14 @@
 <div id="cookies" class="cookies-alert">
-  <div class="cookies-content"><%= advice ||= "We use cookies to track usage and preferences" %>
-  	<%= link ||= "" %>
+  <div class="cookies-content">
+    <%= advice ||= "We use cookies to track usage and preferences" %>
+    <div class="links-and-buttons">
+      <p><%= t("more_info_html", policy_cookies: policy_cookies) %></p>
+      <div class="cookies-alert-btn btn btn-primary accept"><%= button ||= "X" %></div>
+    </div>
   </div>
-  <div id="cookies_btn" class="cookies-alert-btn"><%= button ||= "X" %></div>
 </div>
+
+<%= javascript_tag do %>
+  window.rails_env = "<%= Rails.env %>"
+  window.gtm_code = "<% gtm_code %>"
+<% end %>
