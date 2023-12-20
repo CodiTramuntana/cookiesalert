@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## Version 0.2.1
+- Fix Deny button
+
 ## Version 0.2.0
 - Adapt gem to GDPR.
 - `link` params renamed to `policy_cookies`.
