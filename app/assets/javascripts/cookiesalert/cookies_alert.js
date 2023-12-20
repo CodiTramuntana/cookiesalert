@@ -17,8 +17,8 @@ var cookies = {
         setNonTechnicalCookies();
       })
       $(cookies.denyBtn).click(function () {
-        cookies.accept();
-        $(cookies.div).css({ visibility : 'hidden' });
+        cookies.remove();
+        $(cookies.div).css({ visibility : 'visible' });
       })
     } else {
       $(cookies.denyBtn).click(function () {
