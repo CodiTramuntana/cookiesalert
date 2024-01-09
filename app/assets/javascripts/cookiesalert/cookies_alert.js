@@ -13,29 +13,26 @@ var cookies = {
     if (Cookies.get('cookies_consent') === undefined) {
       $(cookies.div).css({ visibility : 'visible' })
       $(cookies.btn).click(function () {
-        cookies.accept();
-        Cookies.set('cookies_consent', 'true');
-        setNonTechnicalCookies();
+        cookies.accept_all_cookies();
       })
       $(cookies.denyBtn).click(function () {
         cookies.remove();
-        Cookies.set('cookies_consent', 'false');
         $(cookies.div).css({ visibility : 'hidden' });
       })
     } else {
       $(cookies.denyBtn).click(function () {
         cookies.remove();
-        Cookies.set('cookies_consent', 'false');
         $(cookies.div).css({ visibility : 'hidden' });
       })
     }
   },
-  accept : function () {
+  accept_all_cookies : function () {
     Cookies.set('cookies_consent','true', { expires : cookies.expires });
-    $(cookies.div).css({ visibility : 'hidden' })
+    $(cookies.div).css({ visibility : 'hidden' });
+    setNonTechnicalCookies();
   },
   remove : function () {
-    Cookies.remove('cookies_consent');
+    Cookies.set('cookies_consent', 'false');
   }
 }
 
