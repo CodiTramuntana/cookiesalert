@@ -1,8 +1,8 @@
 # CHANGELOG
 
-## Version 0.2.2
-- Change cookies_alert to cookies_consent
-- Make cookies_consent as a Boolean
+## Version 1.0.0
+- Breaking change: cookies_alert is now cookies_consent
+- cookies_consent is now a Boolean instead of defined/undefined
 
 ## Version 0.2.1
 - Fix Deny button

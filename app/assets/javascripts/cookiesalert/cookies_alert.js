@@ -16,22 +16,22 @@ var cookies = {
         cookies.accept_all_cookies();
       })
       $(cookies.denyBtn).click(function () {
-        cookies.remove();
+        cookies.only_technical_cookies();
         $(cookies.div).css({ visibility : 'hidden' });
       })
     } else {
       $(cookies.denyBtn).click(function () {
-        cookies.remove();
+        cookies.only_technical_cookies();
         $(cookies.div).css({ visibility : 'hidden' });
       })
     }
   },
   accept_all_cookies : function () {
-    Cookies.set('cookies_consent','true', { expires : cookies.expires });
+    Cookies.set('cookies_consent', 'true', { expires : cookies.expires });
     $(cookies.div).css({ visibility : 'hidden' });
     setNonTechnicalCookies();
   },
-  remove : function () {
+  only_technical_cookies : function () {
     Cookies.set('cookies_consent', 'false');
   }
 }
