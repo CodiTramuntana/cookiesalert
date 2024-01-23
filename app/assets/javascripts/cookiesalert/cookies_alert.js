@@ -9,30 +9,30 @@ var cookies = {
       cookies.btn = obj.btn || cookies.btn
       cookies.expires = obj.expires || cookies.expires
     }
- 
-    if (Cookies.get('cookies_alert') === undefined) {
+
+    if (Cookies.get('cookies_consent') === undefined) {
       $(cookies.div).css({ visibility : 'visible' })
       $(cookies.btn).click(function () {
-        cookies.accept();
-        setNonTechnicalCookies();
+        cookies.accept_all_cookies();
       })
       $(cookies.denyBtn).click(function () {
-        cookies.remove();
-        $(cookies.div).css({ visibility : 'visible' });
+        cookies.only_technical_cookies();
+        $(cookies.div).css({ visibility : 'hidden' });
       })
     } else {
       $(cookies.denyBtn).click(function () {
-        cookies.remove();
+        cookies.only_technical_cookies();
         $(cookies.div).css({ visibility : 'hidden' });
       })
     }
   },
-  accept : function () {
-    Cookies.set('cookies_alert','true', { expires : cookies.expires });
-    $(cookies.div).css({ visibility : 'hidden' })
+  accept_all_cookies : function () {
+    Cookies.set('cookies_consent', 'true', { expires : cookies.expires });
+    $(cookies.div).css({ visibility : 'hidden' });
+    setNonTechnicalCookies();
   },
-  remove : function () {
-    Cookies.remove('cookies_alert');
+  only_technical_cookies : function () {
+    Cookies.set('cookies_consent', 'false');
   }
 }
 
