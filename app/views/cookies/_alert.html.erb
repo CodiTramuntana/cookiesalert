@@ -1,4 +1,4 @@
-<div id="cookies" class="cookies-alert">
+<div id="cookies" class="cookies-alert" data-rails-env="<%= Rails.env %>" data-gtm-code="<%= local_assigns[:gtm_code] %>">
   <div class="cookies-content">
     <%= advice ||= "We use cookies to track usage and preferences" %>
     <div class="links-and-buttons">
@@ -7,8 +7,3 @@
     </div>
   </div>
 </div>
-
-<%= javascript_tag do %>
-  window.rails_env = "<%= Rails.env %>"
-  window.gtm_code = "<% gtm_code %>"
-<% end %>
