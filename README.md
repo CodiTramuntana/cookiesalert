@@ -16,22 +16,73 @@ And then execute:
 
     $ bundle
 
+## Requirements
+
+Version 2.0 only supports modern setups. The JavaScript is written in modern JavaScript (ES2015+: `const`, `let`, arrow functions, template strings) and no longer depends on jQuery.
+
+| Setup | 1.x | 2.0 | How to load it in 2.0 |
+|---|:---:|:---:|---|
+| Sprockets + Terser | ✅ | ✅ | `//= require cookiesalert/cookies_alert` or `javascript_include_tag` |
+| Sprockets + Uglifier | ✅ | ❌ | Switch to Terser (see below) or stay on 1.x |
+| Propshaft | ❌ | ✅ | `javascript_include_tag "cookiesalert/cookies_alert"` |
+| Importmap | ❌ | ✅ | `import "cookiesalert"` |
+| jsbundling (esbuild, webpack...) | ❌ | ✅ | `javascript_include_tag "cookiesalert/cookies_alert"` |
+| Turbo / Hotwire | — | ✅ | Call `cookies.check()` on `turbo:load` |
+| jQuery | Required | Not needed | — |
+
+Version 2.0 requires a modern browser (no Internet Explorer).
+
+If your app uses Sprockets with **Uglifier**, `assets:precompile` will fail, because Uglifier does not understand modern JavaScript. Replace it with [Terser](https://github.com/ahorek/terser-ruby):
+
+```ruby
+# Gemfile
+gem 'terser'
+```
+
+```ruby
+# config/environments/production.rb
+config.assets.js_compressor = :terser
+```
+
+If you can't upgrade your toolchain, stay on version 1.x (`gem 'cookiesalert', '~> 1.0'`), which still uses jQuery.
+
 ## Usage
 
-Add in "application.js":
-```ruby
-//= require cookiesalert/cookie
+The JavaScript has no dependencies (no jQuery, no js-cookie). Pick the setup that matches your app.
+
+### Sprockets (`//= require`)
+
+In "application.js":
+```js
 //= require cookiesalert/cookies_alert
 ```
 
-Run Javascript check when load/ready:
+### Importmap (Rails 7+)
+
+The gem pins itself, so in "app/javascript/application.js":
 ```js
-$( document ).ready(function() {
-    cookies.check();
+import "cookiesalert"
+```
+
+### Any asset pipeline (Propshaft, Sprockets, jsbundling...)
+
+Load it as a standalone script in your layout:
+```erb
+<%= javascript_include_tag "cookiesalert/cookies_alert" %>
+```
+
+### Initialize
+
+Call `cookies.check()` once the page has loaded:
+```js
+document.addEventListener("DOMContentLoaded", function () {
+  cookies.check();
 });
 ```
 
-Javascript optional parameters to select "#text_div" and add listener in "#button_confirm" to accept cookies:
+With Turbo, use `turbo:load` instead of `DOMContentLoaded`.
+
+Optional parameters: the banner selector (`div`), the accept button (`btn`), the deny button (`denyBtn`) and how many days the consent lasts (`expires`):
 ```js
 cookies.check({
   div : '#cookies',
@@ -43,20 +94,25 @@ cookies.check({
 
 ## Optional template
 
-Add optional styles in "application.css":
-```ruby
+Add the optional styles in "application.css" (Sprockets):
+```css
 *= require cookiesalert/cookies_alert
 ```
 
-Import optional view layout:
+or in your layout (Propshaft or Sprockets):
 ```erb
-<%= render "cookies/alert", advice: "Cookies Text", policy_cookies: "Link Advice", button: "Button", gtm_code: "GTM-XXXX" %>
+<%= stylesheet_link_tag "cookiesalert/cookies_alert" %>
 ```
 
-Render optional parameters:
+Render the optional view layout:
 ```erb
-<%= render "cookies/alert", advice: "Cookies Text", policy_cookies: link_to('Link Advice', root_path, target: '_blank'), button: image_tag('cross_cookies.svg'), gtm_code: "GTM-XXXX" %>
+<%= render "cookies/alert", advice: "Cookies Text", policy_cookies: "/cookies-policy", button: "Button", gtm_code: "GTM-XXXX" %>
 ```
+
+`policy_cookies` is the URL of your cookies policy. `advice`, `button` and `gtm_code` are optional.
+Google Tag Manager is only loaded in production, after the user accepts the cookies.
+
+If you write your own HTML instead of the partial, set `data-rails-env` and `data-gtm-code` on the banner element (or `window.rails_env` / `window.gtm_code`).
 
 ## Used Javascript Linter
 ESLint file config ".eslintrc.js":
@@ -88,9 +144,6 @@ module.exports = {
     }
 };
 ```
-
-## Dependences included:
-- [JavaScript Cookie v3.0.1](https://github.com/js-cookie/js-cookie)
 
 # Contributing
 

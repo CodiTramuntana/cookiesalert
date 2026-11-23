@@ -1,2 +1,2 @@
 ca:
-  more_info_html: Premi per obtenir <a href=%{policy_cookies}>més informació</a> o per <a class="deny">rebutjar-ne</a>.
+  more_info_html: Premeu <a href="%{policy_cookies}">aquí per obtenir més informació</a> o <a class="deny">aquí per rebutjar-les</a>.

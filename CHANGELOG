@@ -1,5 +1,28 @@
 # CHANGELOG
 
+## Version 2.0.0
+[BREAKING CHANGES]
+- JavaScript rewritten without jQuery or js-cookie, using modern JavaScript (ES2015+).
+- Sprockets apps using Uglifier must switch to Terser (see README).
+- `cookiesalert/cookie` (bundled js-cookie) has been removed. Delete `//= require
+cookiesalert/cookie` from your `application.js`.
+- The partial no longer sets `window.rails_env` / `window.gtm_code`; settings are stored in `data-*` attributes on the banner (CSP friendly).
+
+[FIXES]
+- `gtm_code` is now passed to the JavaScript (before, Google Tag Manager never loaded).
+- Google Tag Manager now also loads on later visits after the user has accepted.
+- The `denyBtn` option is now applied.
+- The cookies policy link in the locales now has a quoted `href`.
+
+[OTHER CHANGES]
+- Works with Sprockets, Propshaft, importmap (`import "cookiesalert"`) and
+`javascript_include_tag`.
+- `gtm_code` is optional in the partial.
+- The `cookies_consent` cookie is set with `SameSite=Lax`.
+- Removed the `console.log` on accept.
+- Locales are now included in the packaged gem.
+
+
 ## Version 1.0.0
 - Breaking change: cookies_alert is now cookies_consent
 - cookies_consent is now a Boolean instead of defined/undefined
